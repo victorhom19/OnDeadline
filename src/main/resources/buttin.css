@@ -1,0 +1,7 @@
+.customButton {
+    -fx-background-radius:0;
+    -fx-background-color:#3B6064;
+    -fx-font-family:"Segoe UI Semibold";
+    -fx-font-size:18;
+    -fx-text-fill:#C9E4CA;
+}
