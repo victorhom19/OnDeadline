@@ -80,7 +80,6 @@ public class AddTaskController {
 
     @FXML
     void createNewTask() throws IOException {
-        System.out.println(description.getText());
         String type = taskType.toString();
         StringBuilder result = new StringBuilder();
         String namePart = taskName.getText();
@@ -97,7 +96,7 @@ public class AddTaskController {
         } else {
             daysPart = dateChooser.getValue().toString();
         }
-        result.append(addParentTag((addChildTag(namePart, "taskName") + addChildTag(typePart, "taskType") + addChildTag(timePart, "repeatPart") + addChildTag(daysPart, "repeatDays") + addParentTag(descriptionPart, "description")), "task"));
+        result.append(addParentTag((addChildTag(namePart, "taskName") + addChildTag(typePart, "taskType") + addChildTag(timePart, "time") + addChildTag(daysPart, "days") + addParentTag(descriptionPart, "description")), "task"));
         BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/Data/Data.txt", true));
         writer.write(result.toString());
         writer.close();

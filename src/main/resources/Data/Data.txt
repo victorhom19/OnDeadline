@@ -1,70 +1,18 @@
 <task>
-    <taskName>Поссать</taskName>
+    <taskName>sdgdsfgfdg</taskName>
     <taskType>Regular</taskType>
-    <repeatPart>04:00 - 05:00</repeatPart>
-    <repeatDays>пн, вт, ср, чт, пт, сб</repeatDays>
+    <time>07:00 - 08:00</time>
+    <days>вс</days>
     <description>
-        Встаешь, идешь к толчку,
-        затем снимаешь штаны и ссышь
+        12312121
     </description>
 </task>
 <task>
-    <taskName>fdsfsdf</taskName>
-    <taskType>Regular</taskType>
-    <repeatPart>03:00 - 04:00</repeatPart>
-    <repeatDays>вт, чт</repeatDays>
-    <description>
-        sdfsdsdfsdfsdfsd
-        ghdf242342dff
-        435rgdfgfdgdfgd
-    </description>
-</task>
-<task>
-    <taskName>112323</taskName>
-    <taskType>Regular</taskType>
-    <repeatPart>07:00 - 08:00</repeatPart>
-    <repeatDays>вт, ср, чт, сб</repeatDays>
-    <description>
-        s
-        435rgdfgfdgdfgdfghg
-        sf
-        sdf
-        sad
-        fs
-        dfsd
-    </description>
-</task>
-<task>
-    <taskName>Залупа</taskName>
+    <taskName>sdfdsfsdf</taskName>
     <taskType>Short</taskType>
-    <repeatPart>04:00 - 05:00</repeatPart>
-    <repeatDays>2020-04-28</repeatDays>
+    <time>07:00 - 08:00</time>
+    <days>2020-05-31</days>
     <description>
-    </description>
-</task>
-<task>
-    <taskName>Залупа1</taskName>
-    <taskType>Short</taskType>
-    <repeatPart>04:00 - 05:00</repeatPart>
-    <repeatDays>2020-04-28</repeatDays>
-    <description>
-    </description>
-</task>
-<task>
-    <taskName>Залупа</taskName>
-    <taskType>Regular</taskType>
-    <repeatPart>00:00 - 01:00</repeatPart>
-    <repeatDays>пн</repeatDays>
-    <description>
-        Пошел нахуй пидорас
-    </description>
-</task>
-<task>
-    <taskName>Залупа</taskName>
-    <taskType>Short</taskType>
-    <repeatPart>00:00 - 01:00</repeatPart>
-    <repeatDays>2020-05-07</repeatDays>
-    <description>
-        Пошел нахуй пидорас
+        dsfdsfddsf
     </description>
 </task>

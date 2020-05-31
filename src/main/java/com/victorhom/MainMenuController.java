@@ -3,7 +3,6 @@ package com.victorhom;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.collections.ListChangeListener;
 import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -13,11 +12,7 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.Cell;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
@@ -28,17 +23,19 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import static com.victorhom.DateTimeUtilities.getDayOfWeek;
 import static com.victorhom.FXMLUtilities.loadFXML;
 import static com.victorhom.FXMLUtilities.setRoot;
 import static com.victorhom.TMLUtilities.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import org.joda.time.DateTime;
 import org.joda.time.Seconds;
 
@@ -65,7 +62,7 @@ public class MainMenuController {
 
     @FXML
     void switchToNewNote() throws IOException {
-        System.out.println(findTag(Files.readString(Paths.get("src/main/resources/Data/Data.txt")), "fdsfsdf"));
+        System.out.println(getTasks());
     }
 
     @FXML
@@ -84,6 +81,44 @@ public class MainMenuController {
 
     @FXML
     private void initialize() throws IOException {
+
+
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/Data/TodayTasksData.txt"));
+        List<Integer> tasksCounter = new ArrayList<>();
+        for (int i = 0; i < 24; i++) {
+            tasksCounter.add(0);
+        }
+
+
+        DateTime currentTime = new DateTime();
+        for (String task : getTasks()) {
+            int index = Integer.parseInt(getTaskTime(task).substring(0, 2));
+            if (getTaskType(task).equals("Regular")) {
+                for (String weekDay : getTaskDays(task)) {
+                    if (getDayOfWeek(currentTime.getDayOfWeek()).equals(weekDay)) {
+                        tasksCounter.set(index, tasksCounter.get(index) + 1);
+                    }
+                }
+            } else {
+                if (new ArrayList(Arrays.asList(getTaskDays(task))).get(0).equals(currentTime.toDateTime().toString().substring(0, 10))) {
+                    tasksCounter.set(index, tasksCounter.get(index) + 1);
+                }
+            }
+
+        }
+
+        System.out.println(currentTime.toDateTime());
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < 24; i++) {
+            result.append(reader.readLine(), 0, 13).append(" ").append(tasksCounter.get(i)).append(System.lineSeparator());
+        }
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/Data/TodayTasksData.txt"));
+        writer.write(result.toString());
+        writer.close();
+
         todayTasks = new Text(Files.readString(Paths.get("src/main/resources/Data/TodayTasksData.txt")));
         todayTasks.setFont(new Font(15));
         todayTasksList.getChildren().add(todayTasks);
@@ -109,6 +144,7 @@ public class MainMenuController {
                 };
 
                 for (Node closingNode : gridPane.getChildren()) {
+                    switchToNewTaskButton.addEventHandler(MouseEvent.MOUSE_CLICKED, closingTab);
                     closingNode.addEventHandler(MouseEvent.MOUSE_CLICKED, closingTab);
                 }
                 Pane bgPane = new Pane();
@@ -135,7 +171,6 @@ public class MainMenuController {
                     newStage.setY(boundsInScreen.getMinY());
                 }
                 newStage.setResizable(false);
-
 
 
             });
@@ -197,7 +232,6 @@ public class MainMenuController {
             tomorrowTasksList.getChildren().add(tomorrowTasks);
         }
     }));
-
 
 
 }
