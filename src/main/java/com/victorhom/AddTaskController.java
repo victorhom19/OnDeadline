@@ -61,7 +61,7 @@ public class AddTaskController {
 
     @FXML
     private void back() throws IOException {
-        setRoot("MainMenu1", App.scene);
+        setRoot("MainMenu", App.scene);
     }
 
     @FXML
@@ -96,7 +96,11 @@ public class AddTaskController {
         } else {
             daysPart = dateChooser.getValue().toString();
         }
-        result.append(addParentTag((addChildTag(namePart, "taskName") + addChildTag(typePart, "taskType") + addChildTag(timePart, "time") + addChildTag(daysPart, "days") + addParentTag(descriptionPart, "description")), "task"));
+        result.append(addParentTag((addChildTag(namePart, "taskName")
+                                  + addChildTag(typePart, "taskType")
+                                  + addChildTag(timePart, "time")
+                                  + addChildTag(daysPart, "days")
+                                  + addParentTag(descriptionPart, "description")), "task"));
         BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/Data/Data.txt", true));
         writer.write(result.toString());
         writer.close();

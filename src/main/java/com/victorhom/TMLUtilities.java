@@ -97,10 +97,14 @@ public class TMLUtilities {
                     matcher = closeTagPattern.matcher(line);
                     nameMatcher = tagNamePattern.matcher(line);
                     if (nameMatcher.matches()) {
+                        taskBuffer = new StringBuilder();
                         break;
                     }
                     taskBuffer.append(line).append(System.lineSeparator());
-                    line = reader.readLine();
+                    if (!(matcher.matches())) {
+                        line = reader.readLine();
+                    }
+
                 }
                 newFile.append(taskBuffer.toString());
             }

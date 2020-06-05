@@ -21,4 +21,26 @@ public class DateTimeUtilities {
                 return null;
         }
     }
+
+    static int getDayOfWeek(String day) {
+        switch (day) {
+            case "пн":
+                return 1;
+            case "вт":
+                return 2;
+            case "ср":
+                return 3;
+            case "чт":
+                return 4;
+            case "пт":
+                return 5;
+            case "сб":
+                return 6;
+            case "вс":
+                return 7;
+            default:
+                return 0;
+        }
+    }
+
 }
