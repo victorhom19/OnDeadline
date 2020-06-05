@@ -64,12 +64,11 @@ public class MainMenuController {
 
     @FXML
     void closeApp() {
-        System.exit(1);
+        System.exit(0);
     }
 
     @FXML
     void switchToNewTask() throws IOException {
-        System.out.println("Boop");
         setRoot("NewTaskTab", App.scene);
     }
 
