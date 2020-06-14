@@ -1,0 +1,75 @@
+.button1 {
+    -fx-background-color: #3B6064;
+    -fx-background-radius: 0;
+
+    -fx-border-color: #C9E4CA;
+    -fx-border-width: 1 0 0 0;
+
+    -fx-text-fill: #C9E4CA;
+    -fx-text-alignment: center;
+}
+
+/*.linedTextFlow {
+    -fx-border-color: #87BBA2;
+    -fx-border-width: 1 0 0 0;
+}*/
+
+/*.lineAsFlowPanel {
+    -fx-border-color: #364958;
+    -fx-border-width: 2 0 0 0;
+    -fx-border-style: dotted;
+}*/
+
+.headers {
+    -fx-fill: #87BBA2;
+    -fx-background-color: #364958;
+}
+
+.hoursPane {
+    -fx-border-color: #364958;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-style: dashed;
+}
+
+.combo-box .text
+{
+    -fx-font-size: 18;
+}
+
+.combo-box-popup .list-view
+{
+    -fx-background-color: transparent;
+    -fx-border-color: C64A48;
+    -fx-border-width: 0 1 1 1;
+
+}
+.combo-box-popup .list-view .list-cell
+{
+    -fx-alignment: center;
+    -fx-background-color: eec16c;
+}
+
+.combo-box-popup .list-view .list-cell:focused
+{
+    -fx-alignment: center;
+    -fx-background-color: C64A48;
+}
+
+
+
+.text-area {
+    -fx-background-color: rgba(53,89,119,0.0);
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
